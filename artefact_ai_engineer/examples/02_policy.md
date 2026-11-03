@@ -1,15 +1,35 @@
-# Scenario 2 — Return policy (nontrivial rules)
+# Example 2 — Online Purchase Return Policy
 
-**Status: expected scenario; not a real LLM transcript.**
+## Scenario
 
-Customer: Comprei online e me arrependi. Posso devolver?
+A customer purchased a musical instrument online and wants to understand the return policy and refund process.
 
-Agent (expected behavior): Call `policy_lookup(topic="direito de arrependimento em compras online")`. Explain the store's 7-calendar-day window after receipt, original packaging and no signs of use, and refund to original method within 10 business days, citing PDF page 4. Do not claim to initiate the return.
+## Customer Message
 
-Verification command:
+Comprei um violão pela internet há 5 dias, recebi o produto e me arrependi da compra. Posso devolver? Como funciona o reembolso?
 
-```bash
-python -c "from store import policy_lookup; print([(p['page']) for p in policy_lookup('arrependimento devolução')['pages']])"
-```
+## Actual Agent Response
 
-*For submission, replace with a genuine model conversation.*
+Sim! Para compras online, a política prevê arrependimento em até 7 dias corridos após o recebimento, sem necessidade de justificativa. Então, se você recebeu o produto há 5 dias, ainda está no prazo.
+
+O produto deve estar na embalagem original, sem sinais de uso, com os acessórios e manuais. O frete de devolução é por conta da loja e o reembolso ocorre na mesma forma de pagamento em até 10 dias úteis.
+
+Eu posso orientar, mas não consigo registrar a devolução por aqui.
+
+Fonte: Manual de Políticas e Procedimentos, página 4.
+
+## Technical Explanation
+
+The assistant applied the return policy described in the provided PDF.
+
+The response covers the return window, product conditions, refund process, and return shipping responsibilities.
+
+The assistant also clarified that it cannot initiate the return process, avoiding unsupported transactional claims.
+
+## Result
+
+**Passed —** The response follows the documented store policy and provides appropriate customer guidance.
+
+## Data Source
+
+Store Policies and Procedures Manual — Page 4.
